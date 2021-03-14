@@ -4,6 +4,9 @@ import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom
 import DetailScreen from '../screens/DetailScreen'
 import MainNavigator from './MainNavigator'
 import Svg, { Path, G, Circle } from 'react-native-svg';
+import ScoreScreen from '../screens/ScoreScreen'
+import HomeScreen from '../screens/HomeScreen'
+import SettingScreen from '../screens/SettingScreen'
 
 const Tab = createBottomTabNavigator()
 
@@ -69,9 +72,9 @@ const TabNavigator = () => {
         <Tab.Navigator
             tabBarOptions={{
                 activeTintColor: '#007A53',
-                inactiveTintColor: 'gray',
+                inactiveTintColor: '#8A9CB7',
                 style: {
-                    position: 'absolute',
+                    // position: 'absolute',
                     left: 0,
                     bottom: 10,
                     right: 0,
@@ -80,11 +83,11 @@ const TabNavigator = () => {
                     elevation: 0,
                 }
             }}
-            tabBar={(props) => (
-                <CustomTabBar
-                    props={props}
-                />
-            )}
+            // tabBar={(props) => (
+            //     <CustomTabBar
+            //         props={props}
+            //     />
+            // )}
         >
             <Tab.Screen 
                 name="TabHome" 
@@ -108,21 +111,21 @@ const TabNavigator = () => {
                 }}
             />
             <Tab.Screen 
-                name="Detail" 
-                component={DetailScreen}
+                name="Score" 
+                component={ScoreScreen}
                 options={{
-                    tabBarIcon: () => (
-                        <Image source={require('../assets/images/Score-icon-select.png')}/>
-                    ),
+                    tabBarIcon: ({focused}) => {
+                        return focused ? <Image source={require('../assets/images/Score-icon-select.png')}/> : <Image source={require('../assets/images/Score-icon.png')}/>
+                    },
                     title: 'স্কোর'
                 }}
             />
             <Tab.Screen 
                 name="Float" 
-                component={DetailScreen}
+                component={HomeScreen}
                 options={{
                     tabBarIcon: () => (
-                        <Svg style={{marginBottom: -16}}
+                        <Svg style={{marginBottom: -20}}
                             xmlns="http://www.w3.org/2000/svg"
                             width={64.128}
                             height={64.129}
@@ -154,21 +157,75 @@ const TabNavigator = () => {
                 }}
             />
             <Tab.Screen 
-                name="Option" 
+                name="List" 
                 component={DetailScreen}
                 options={{
-                    tabBarIcon: () => (
-                        <Image source={require('../assets/images/list-icon-select.png')}/>
+                    tabBarIcon: ({focused}) => (
+                        <Svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={13.676}
+                            height={12.581}
+                            viewBox="0 0 13.676 12.581"
+                            >
+                            <G data-name="Group 28">
+                                <Path
+                                fill={focused ? '#007A53' :  'gray'}
+                                d="M2.734 1.363A1.367 1.367 0 111.367-.004a1.368 1.368 0 011.367 1.367zm0 0"
+                                data-name="Path 14"
+                                />
+                                <G data-name="Group 25">
+                                <Path
+                                    fill={focused ? '#007A53' :  'gray'}
+                                    d="M13.128 2.188H5.469a.547.547 0 110-1.094h7.659a.547.547 0 110 1.094z"
+                                    data-name="Path 15"
+                                />
+                                </G>
+                                <Path
+                                fill={focused ? '#007A53' :  'gray'}
+                                d="M2.734 6.291a1.367 1.367 0 11-1.367-1.367 1.368 1.368 0 011.367 1.367zm0 0"
+                                data-name="Path 16"
+                                />
+                                <G data-name="Group 26">
+                                <Path
+                                    fill={focused ? '#007A53' :  'gray'}
+                                    d="M13.128 7.112H5.469a.547.547 0 110-1.094h7.659a.547.547 0 110 1.094z"
+                                    data-name="Path 17"
+                                />
+                                </G>
+                                <Path
+                                fill={focused ? '#007A53' :  'gray'}
+                                d="M2.734 11.214a1.367 1.367 0 11-1.367-1.368 1.367 1.367 0 011.367 1.368zm0 0"
+                                data-name="Path 18"
+                                />
+                                <G data-name="Group 27">
+                                <Path
+                                    fill={focused ? '#007A53' :  'gray'}
+                                    d="M13.128 12.034H5.469a.547.547 0 110-1.094h7.659a.547.547 0 110 1.094z"
+                                    data-name="Path 19"
+                                />
+                                </G>
+                            </G>
+                        </Svg>
                     ),
                     title: 'লিস্ট'
                 }}
             />
             <Tab.Screen 
-                name="Settings" 
-                component={DetailScreen}
+                name="Setting" 
+                component={SettingScreen}
                 options={{
-                    tabBarIcon: () => (
-                        <Image source={require('../assets/images/Setting-icon-select.png')}/>
+                    tabBarIcon: ({focused}) => (
+                        <Svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={13.526}
+                            height={13.904}
+                            viewBox="0 0 13.526 13.904"
+                            >
+                            <Path
+                                fill={focused ? '#007A53' :  'gray'}
+                                d="M11.925 7.629a4.695 4.695 0 000-1.354l1.471-1.152a.344.344 0 00.082-.443l-1.39-2.409a.342.342 0 00-.423-.149l-1.731.7a5.233 5.233 0 00-1.175-.684L8.499.296a.36.36 0 00-.348-.293h-2.78a.349.349 0 00-.344.293l-.261 1.842a5.075 5.075 0 00-1.175.684l-1.732-.7a.345.345 0 00-.423.149L.046 4.68a.346.346 0 00.084.443l1.467 1.152a4.7 4.7 0 000 1.354L.13 8.781a.344.344 0 00-.084.443l1.39 2.409a.342.342 0 00.423.149l1.732-.7a5.236 5.236 0 001.175.684l.261 1.842a.349.349 0 00.344.293h2.78a.352.352 0 00.344-.293l.26-1.842a5.054 5.054 0 001.176-.684l1.731.7a.345.345 0 00.423-.149l1.39-2.409a.344.344 0 00-.084-.443zM6.762 9.384a2.432 2.432 0 112.432-2.432 2.431 2.431 0 01-2.432 2.432zm0 0"
+                            />
+                        </Svg>
                     ),
                     title: 'সেটিং',
                 }}
