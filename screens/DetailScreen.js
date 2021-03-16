@@ -1,13 +1,31 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
 import Svg, { G, Path } from "react-native-svg"
+import { LinearGradient } from 'expo-linear-gradient';
 
-const DetailScreen = () => {
+const DetailScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <ImageBackground style={{width:'100%', height:'100%'}} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg'}}>
-                <Text style={{marginTop: 50}}>The text</Text>
+                <ImageBackground style={styles.headerBG} source={require('../assets/images/question-img1.png')}>
+                    <View style={styles.headerIcon}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={()=> navigation.navigate('Home')}>
+                            <Svg
+                                style={{marginTop: 50}}
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={16.401}
+                                height={12.026}
+                                viewBox="0 0 16.401 12.026"
+                            >
+                                <Path
+                                    fill="#fff"
+                                    d="M1.831 5.411l4.583-4.375a.6.6 0 00-.829-.87l-5.234 5a1.2 1.2 0 00.011 1.71l5.225 4.987a.6.6 0 00.827-.871l-4.6-4.374h13.988a.6.6 0 000-1.2zm13.969 0"
+                                    data-name="Path 24"
+                                />
+                            </Svg>
+                        </TouchableOpacity>
+                        <Text style={{marginTop: 50}}></Text>
+                    </View>
                 </ImageBackground>
             </View>
             <View style={styles.map}>
@@ -1762,6 +1780,15 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 350,
+    },
+    headerBG: {
+        width: '100%',
+        height: '100%',
+    },
+    headerIcon: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20
     },
     map:{
         alignItems: 'center',
