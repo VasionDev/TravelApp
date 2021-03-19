@@ -136,7 +136,7 @@ const TabNavigator = () => {
                 component={HomeScreen}
                 options={{
                     tabBarIcon: () => (
-                        <Svg style={{marginBottom: -20}}
+                        <Svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={64.128}
                             height={64.129}

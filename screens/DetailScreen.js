@@ -7,24 +7,29 @@ const DetailScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <ImageBackground style={styles.headerBG} source={require('../assets/images/question-img1.png')}>
-                    <View style={styles.headerIcon}>
-                        <TouchableOpacity activeOpacity={0.5} onPress={()=> navigation.navigate('Home')}>
-                            <Svg
-                                style={{marginTop: 50}}
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={16.401}
-                                height={12.026}
-                                viewBox="0 0 16.401 12.026"
-                            >
-                                <Path
-                                    fill="#fff"
-                                    d="M1.831 5.411l4.583-4.375a.6.6 0 00-.829-.87l-5.234 5a1.2 1.2 0 00.011 1.71l5.225 4.987a.6.6 0 00.827-.871l-4.6-4.374h13.988a.6.6 0 000-1.2zm13.969 0"
-                                    data-name="Path 24"
-                                />
-                            </Svg>
-                        </TouchableOpacity>
-                        <Text style={{marginTop: 50}}></Text>
+                <ImageBackground style={styles.headerBG} source={require('../assets/images/question-img.png')}>
+                    <View style={styles.overlay}>
+                        <View style={styles.headerIcon}>
+                            <TouchableOpacity activeOpacity={0.5} onPress={()=> navigation.navigate('Home')}>
+                                <Svg
+                                    style={{marginTop: 50}}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={16.401}
+                                    height={12.026}
+                                    viewBox="0 0 16.401 12.026"
+                                >
+                                    <Path
+                                        fill="#fff"
+                                        d="M1.831 5.411l4.583-4.375a.6.6 0 00-.829-.87l-5.234 5a1.2 1.2 0 00.011 1.71l5.225 4.987a.6.6 0 00.827-.871l-4.6-4.374h13.988a.6.6 0 000-1.2zm13.969 0"
+                                        data-name="Path 24"
+                                    />
+                                </Svg>
+                            </TouchableOpacity>
+                            <Text style={{marginTop: 50}}></Text>
+                        </View>
+                        <View style={styles.questionContent}>
+                            <Text style={styles.questionTitle}>এই দর্শনীয় স্থানটি কোন জেলায় অবস্থিত?</Text>
+                        </View>
                     </View>
                 </ImageBackground>
             </View>
@@ -1759,7 +1764,7 @@ const DetailScreen = ({navigation}) => {
                         data-name="Path 1159"
                         opacity={0.78}
                         />
-                        <Path
+                        <Path onPress={()=>console.log('map click')}
                         d="M74.103 41.018v.727h-.985l-.551.617-.451.617v2.241h-.536l-1.209-.28-.713.28-.167.56-.051.16-.044.094h-3.3l-.577-.421-.864-1.01-1.525-1.512-2.058-1.935-1.443-1.219-.866-.547-1.068-.588-1.194-.714-1.525-.881-1.03-.714-2.224-2.9V27.12l-3.336-2.65v-2.636l.838-.489.6-.392v-.84l-1.263-.337-.549-.392-.715-.392h-.769v-1.177l-.384-1.4-1.371-.28-.989-.842-.933-.392v-1.737l.274-.842.6-.727.879-.842.605-.727.715.672.41.785.359 1.01 1.645.112.167.615 3.019.225.274.225v3.7l1.484.337v1.569l-.879.615.056.5.823.672.384.28.274-.672h.441l.6.337-.384.56-.274.9v1.065l-.11.9-.274.672v.842l.715.615.769.785.6.562h1.7l1.755 1.792.385.672v.955h.825v1.177h1.538l.384.615.823.743.989.408h1.263l.6-.759.548-.5.328-.45.277-.335.384.84.6 1.206.6.251 1.153.5v2.074h1.427v2.017l1.373 1.235z"
                         data-name="Path 1160"
                         opacity={0.8}
@@ -1785,10 +1790,27 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
+    overlay: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 122, 83, .5)',
+        justifyContent: 'space-between'
+    },
     headerIcon: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+    },
+    questionContent: {
+        marginBottom: 100,
+        alignItems: 'center',
+    },
+    questionTitle: {
+        fontSize: 25,
+        color: '#fff',
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     map:{
         alignItems: 'center',
