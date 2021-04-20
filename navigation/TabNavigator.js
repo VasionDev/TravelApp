@@ -1,12 +1,13 @@
 import React from 'react'
 import { View, TouchableOpacity, Image } from 'react-native'
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs'
-import DetailScreen from '../screens/DetailScreen'
-import MainNavigator from './MainNavigator'
+import QuestionScreen from '../screens/QuestionScreen'
+import MainNavigator, { ScoreNavigation } from './MainNavigator'
 import Svg, { Path, G, Circle, TSpan, Text } from 'react-native-svg';
 import ScoreScreen from '../screens/ScoreScreen'
 import HomeScreen from '../screens/HomeScreen'
 import SettingScreen from '../screens/SettingScreen'
+import ListScreen from './../screens/ListScreen';
 
 const Tab = createBottomTabNavigator()
 
@@ -112,7 +113,7 @@ const TabNavigator = () => {
             />
             <Tab.Screen 
                 name="Score" 
-                component={ScoreScreen}
+                component={ScoreNavigation}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Svg
@@ -133,7 +134,7 @@ const TabNavigator = () => {
             />
             <Tab.Screen 
                 name="Float" 
-                component={HomeScreen}
+                component={MainNavigator}
                 options={{
                     tabBarIcon: () => (
                         <Svg
@@ -169,7 +170,7 @@ const TabNavigator = () => {
             />
             <Tab.Screen 
                 name="List" 
-                component={DetailScreen}
+                component={ListScreen}
                 options={{
                     tabBarIcon: ({focused}) => (
                         <Svg
