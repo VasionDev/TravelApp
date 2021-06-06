@@ -2,7 +2,6 @@ import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import Svg, { G, Path } from "react-native-svg"
-// import LinearGradient from 'react-native-linear-gradient';
 
 const AppHeader = () => {
     return (
