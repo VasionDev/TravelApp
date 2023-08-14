@@ -71,18 +71,22 @@ const CustomTabBar = (props) => {
 const TabNavigator = () => {
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                activeTintColor: '#007A53',
-                inactiveTintColor: '#8A9CB7',
-                style: {
-                    // position: 'absolute',
-                    left: 0,
-                    bottom: 10,
-                    right: 0,
-                    borderTopWidth: 0,
-                    backgroundColor: "#FFF",
-                    elevation: 0,
-                }
+            screenOptions={{
+                tabBarActiveTintColor: '#007A53',
+                tabBarInactiveTintColor: '#8A9CB7',
+                // style: {
+                //     left: 0,
+                //     bottom: 10,
+                //     right: 0,
+                //     borderTopWidth: 0,
+                //     backgroundColor: "#FFF",
+                //     elevation: 0,
+                // }
+                tabBarStyle: [
+                    {
+                        display: "flex"
+                    }
+                ]
             }}
             // tabBar={(props) => (
             //     <CustomTabBar

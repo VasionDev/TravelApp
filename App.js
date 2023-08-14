@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './navigation/TabNavigator';
-import { createStore, combineReducers } from 'redux'
+import { legacy_createStore as createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { mianReducer } from './store/reducer/mainReducer';
 import LoadingScreen from './components/LoadingScreen';
